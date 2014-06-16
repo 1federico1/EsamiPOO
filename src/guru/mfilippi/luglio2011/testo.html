@@ -1,0 +1,28 @@
+<p>
+Una software house deve ristrutturare una applicazione che simula le dinamiche di un parco montano. Nel parco (per ora) ci sono due tipologie di animali: Roditori e Rapaci, modellati dalle corrispondenti classi. Il parco e' modellato dall'omonima classe: questa classe gestisce due mappe che associano ad una posizione la presenza di un animale (roditore o rapace).
+</p>
+<p>
+Roditori e rapaci hanno diverse proprieta' in comune (peso, cibo, probabilita' di riproduzione, anni, posizione), ma differiscono per il comportameto. Entrambi si riproducono e muoiono (per mancanza di cibo o per vecchiaia), tuttavia i rapaci cacciano, mentre i roditori si spostano nel parco (se non lo fanno non si nutrono). La caccia dei rapaci consiste nel cercare nelle proprie adiacenze un animale piu' piccolo (con minor peso); se lo trovano, lo mangiano: ne prendono il posto e aumentano il proprio cibo.
+NB: come si puo' osservare dal codice, per semplicita' i pesi dei rapaci e dei roditori sono costanti (fissate al momento della creazione degli oggetti) e i rapaci sono piu' pesanti dei roditori.
+</p>
+<p>
+Ci si e' resi conto che il software non e' ben progettato.
+<ul>
+<li>
+DOMANDA 1 (5%): nelle mappe <tt>posizione2rapace</tt> e <tt>posizione2roditore</tt> viene sollevato un errore. Perche'? (scriverlo in un commento di max due righe, all'inizio della classe <tt>Simulatore</tt>). Risolvere il problema.
+</li>
+<li>
+DOMANDA 2 (20%): nella classe <tt>Parco</tt> scrivere il metodo <tt>Map&lt;Integer, Integer&gt; cibo2numeroRoditori()</tt>: restituisce una mappa che ha per chiave valore di cibo, e per valore il numero di roditori con tale valore di cibo
+</li>
+<li>
+DOMANDA 3 (20%): scrivere una classe di test con almeno tre metodi di test per il metodo <tt>List&lt;Roditore&gt; roditoriOrdinatiPerEtaCibo()</tt> della classe <tt>Parco</tt> (vedi DOMANDA 4).
+</li>
+<li>
+DOMANDA 4 (15%): nella classe <tt>Parco</tt> scrivere il metodo
+<tt>List&lt;Roditore&gt; roditoriOrdinatiPerEtaCibo()</tt>: deve restituire una lista dei roditori presenti nel parco ordinata in ordine crescente di eta, a parita' di eta, di cibo. E' possibile introdurre nuove classi.
+</li>
+<li>
+DOMANDA 5 (40%): ci sono molte linee di codice in comune tra <tt>Roditore</tt> e <tt>Rapace</tt>, cosi' come nella classe <tt>Parco</tt> ci sono molti metodi che differiscono solo per la tipologia di animale. Un progettista esperto ci fa notare che e' opportuno introdurre una classe astratta <tt>Animale</tt>, che deve essere estesa da <tt>Rapace</tt> e <tt>Roditore</tt>, e che nella classe <tt>Parco</tt> si deve usare una sola mappa, che associa una posizione ad un animale. Implementare le modifiche suggerite dal progettista. Anche i metodi delle domande 2 e 4 dovranno essere cambiati per poter lavorare su oggetti <tt>Animale</tt> anzicche' su oggetti <tt>Roditore</tt>; in pratica si avranno i metodi <tt>List&lt;Roditore&gt; roditoriOrdinatiPerEtaCibo()</tt>, e <tt>Map&lt;Integer, Integer&gt; cibo2numeroRoditori()</tt> (non e' necessario modificare la classe di test). <br />
+NB: (facoltativo, molto semplice) per far funzionare il simulatore con la nuova implementazione e' necessario modificare anche il medoto <tt>run()</tt> della classe <tt>Simulatore</tt> (facile) e usare il codice commentato nella classe <tt>Visualizzatore</tt> (banale).
+</li>
+</ul>
